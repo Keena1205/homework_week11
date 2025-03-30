@@ -116,41 +116,84 @@ body {
     color: #000000; /*  black colour on hover */
     }
 
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      flex-direction: row-reverse;
+      flex-wrap: nowrap;
+    }
+
+    .logo {
+      margin-left: 650px;
+      max-width: 100px;
+    }
+
+    .logo img {
+      height: 50px;
+      max-width: 100%;
+    }
+
     .nav-tabs {
-    background-color: #f5f5f5; /* Light Gray from palette for the nav bar background */
-    border-bottom: 1px solid #ddd; /* border */
-    padding-left: 10px; /* padding on the left */
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex-wrap: nowrap; /* Add this line */
     }
 
     .nav-tabs .nav-item {
-    margin-bottom: -1px; /* spacing between items and border */
+      margin-right: 10px;
+      margin-bottom: -1px;
     }
 
     .nav-tabs .nav-link {
-    border: 1px solid transparent; /* border transparent */
-    border-top-left-radius: 4px; /* Rounded corners for the top */
-    border-top-right-radius: 4px;
-    padding: 0.5rem 1rem; /* Padding for the links */
-    color: #000000; /* Black text  */
-    text-decoration: none; /* Remove underlines */
+      border: 1px solid transparent;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      padding: 0.5rem 1rem;
+      color: #000000;
+      text-decoration: none;
     }
 
     .nav-tabs .nav-link:hover,
     .nav-tabs .nav-link:focus {
-    background-color: #ffffff; /* White background on hover/focus */
-    border-color: #ddd #ddd #f5f5f5; /* Border color on hover/focus to match */
-    color: #e75480;  /* Pink on hover */
+      background-color: #ffffff;
+      border-color: #ddd #ddd #f5f5f5;
+      color: #e75480;
     }
 
     .nav-tabs .nav-link.active {
-    background-color: #ffffff; /* White background for the active link */
-    border-color: #ddd #ddd #ffffff; /* Active link border */
-    color: #e75480; /* Active link text - Pink */
-    font-weight: bold; /* Make active link text bold */
+      background-color: #ffffff;
+      border-color: #ddd #ddd #ffffff;
+      color: #e75480;
+      font-weight: bold;
     }
 
-    .nav-tabs .nav-link.disabled {
-    color: #6c757d; /* Gray out disabled links */
-    background-color: transparent;
-    border-color: transparent;
-    }
+
+    ***Add to HTML code***
+
+    <header>
+  <a href="/">
+      <img src="static/images/gt_logo.png" alt="Girl Tech Logo" class="logo">
+  </a>
+  <nav>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Resources</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Join</a>
+      </li>
+    </ul>
+  </nav>
+</header>
