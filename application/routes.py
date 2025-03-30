@@ -10,7 +10,7 @@ import bcrypt
 @app.route('/')
 @app.route('/home')
 def home():
-    session['loggedIn'] = False
+    # session['loggedIn'] = False
     return render_template('home.html', title='Home')
 
 
