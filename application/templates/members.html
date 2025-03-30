@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+
+<h1 class="mt-4 mb-3">Meet other Girl Tech members near you</h1>
+
+<p>Welcome to our growing Girl Tech community! Here, you’ll find inspiring women in tech from all over the world — and maybe even someone in your city or region.</p>
+
+<p>Whether you're a seasoned coder, a design thinker, or just starting your tech journey, you're not alone. Explore who's already joined, see where they're from, and start building your own tech-powered support network.</p>
+
+<hr>
+
+<table class="table table-hover mt-4">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Location</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.location }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="2">No members found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}

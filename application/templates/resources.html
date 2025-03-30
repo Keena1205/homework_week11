@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+
+<h1 class="mt-4 mb-3">Download Useful Resources</h1>
+
+<p>Looking to level up your skills or explore something new?</p>
+<p>Our curated collection of resources is here to support your tech journey. From coding cheat sheets to career guides and interview prep, these free downloads are made by and for the Girl Tech community.</p>
+<p>Check back often — we’re always adding new content!</p>
+
+<hr>
+
+<div class="row mt-4">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Beginner’s Guide to HTML & CSS</h5>
+                <p class="card-text">A simple, printable PDF that covers the basics of web structure, tags, and styling — perfect for beginners.</p>
+                <a href="{{ url_for('static', filename='resources/html_css_guide.pdf') }}" class="btn btn-primary mt-auto" download>Download</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Python Cheat Sheet</h5>
+                <p class="card-text">All the key syntax and commands in one place — functions, loops, data types, and more.</p>
+                <a href="{{ url_for('static', filename='resources/python_cheat_sheet.pdf') }}" class="btn btn-primary mt-auto" download>Download</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Tech Interview Prep Workbook</h5>
+                <p class="card-text">A guided PDF to help you prepare for technical interviews, with practice questions, tips, and confidence boosters.</p>
+                <a href="{{ url_for('static', filename='resources/interview_prep.pdf') }}" class="btn btn-primary mt-auto" download>Download</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">LinkedIn Profile Checklist for Women in Tech</h5>
+                <p class="card-text">Make your online presence shine with this profile-building guide tailored for tech professionals.</p>
+                <a href="{{ url_for('static', filename='resources/linkedin_checklist.pdf') }}" class="btn btn-primary mt-auto" download>Download</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Career Pathways in Tech (Infographic)</h5>
+                <p class="card-text">A downloadable visual guide exploring different roles in tech — from cybersecurity to UX.</p>
+                <a href="{{ url_for('static', filename='resources/career_pathways.pdf') }}" class="btn btn-primary mt-auto" download>Download</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

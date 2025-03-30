@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+<h1>Meet the team behind Girl Tech</h1>
+
+<p>We are ladies from a range of backgrounds and industries, all with one thing in common - a love of tech! </p>
+
+<p>Girl Tech is powered by a passionate team of women who believe in the future of tech being diverse, inclusive, and empowering. Sakeena, Reanna, Miranda, and Titi work together to bring this vision to life—creating a space where women can connect, learn, and lead.</p>
+
+<br>
+
+<div class="row text-center">
+    <div class="col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/team1.jpg') }}" class="rounded-circle mb-2" alt="Miranda Childs" width="150" height="150">
+        <h5>Miranda Childs</h5>
+        <p class="text-muted">Founder & Lead Developer</p>
+        <p class="small">Miranda is the brains behind Girl Tech. She’s passionate about building digital spaces where girls can thrive in tech and creativity.</p>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/team2.jpg') }}" class="rounded-circle mb-2" alt="Titi Ejembi" width="150" height="150">
+        <h5>Titi Ejembi</h5>
+        <p class="text-muted">UX/UI Designer</p>
+        <p class="small">Titi transforms big ideas into beautiful, user-friendly designs. Her goal is to make tech feel welcoming and intuitive for everyone.</p>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/team3.jpg') }}" class="rounded-circle mb-2" alt="Sakeena Amjad" width="150" height="150">
+        <h5>Sakeena Amjad</h5>
+        <p class="text-muted">Content Creator</p>
+        <p class="small">Sakeena brings tech topics to life with articles, tutorials, and videos that inform, empower, and inspire our readers.</p>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <img src="{{ url_for('static', filename='images/team4.jpg') }}" class="rounded-circle mb-2" alt="Reanna Gibson" width="150" height="150">
+        <h5>Reanna Gibson</h5>
+        <p class="text-muted">Community Manager</p>
+        <p class="small">Reanna leads our outreach, events, and community-building efforts—connecting girls in tech across the globe.</p>
+    </div>
+</div>
+
+<!--<img src="static/images/girltechgirls.jpeg" alt="Meet the team">-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+{% endblock %}

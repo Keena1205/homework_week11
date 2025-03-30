@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+
+<h1 class="mt-4 mb-3">Events and Webinars</h1>
+
+<p>At Girl Tech, we believe that knowledge grows stronger when it’s shared. Our events and seminars are designed to spark ideas, build confidence, and create meaningful connections across the tech world.</p>
+
+<p>From live coding workshops and panel discussions to fireside chats with industry leaders, we host a wide range of virtual and in-person events tailored to our community.</p>
+
+<hr>
+
+<h2 class="mt-5">What to expect</h2>
+<ul>
+    <li><strong>Skill-building workshops:</strong> Learn everything from Python basics to UX design principles led by women in tech.</li>
+    <li><strong>Networking sessions:</strong> Connect with like-minded members in your region or industry.</li>
+    <li><strong>Panel discussions:</strong> Hear from trailblazers about breaking barriers, career pivots, and tech trends.</li>
+    <li><strong>Mentorship circles:</strong> Join small-group sessions to get guidance and share experiences.</li>
+</ul>
+
+<hr>
+
+<h3 class="mt-5">Members-only access</h3>
+<p>To keep our events meaningful and interactive, many sessions are exclusive to registered Girl Tech members.</p>
+<p>Not a member yet? <a href="{{ url_for('join') }}">Join Girl Tech now</a> to unlock access to our full calendar.</p>
+
+<hr>
+
+<h2 class="mt-5 mb-4">Upcoming events</h2>
+
+<table class="table table-hover">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Event Title</th>
+            <th scope="col">Type</th>
+            <th scope="col">Register</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>April 15</td>
+            <td>Intro to Web Development</td>
+            <td>Virtual Workshop</td>
+            <td><a href="{{ url_for('register_event', event_id=1) }}" class="btn btn-outline-primary btn-sm">Register →</a></td>
+        </tr>
+        <tr>
+            <td>April 27</td>
+            <td>Breaking Into Data Science</td>
+            <td>Live Panel</td>
+            <td><a href="{{ url_for('register_event', event_id=2) }}" class="btn btn-outline-primary btn-sm">Register →</a></td>
+        </tr>
+        <tr>
+            <td>May 3</td>
+            <td>Community Coffee Chat – London</td>
+            <td>In-person</td>
+            <td><a href="{{ url_for('register_event', event_id=3) }}" class="btn btn-outline-primary btn-sm">Register →</a></td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
