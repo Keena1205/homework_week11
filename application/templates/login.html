@@ -2,6 +2,12 @@
 
 {% block body_content %}
 <section>
+      {% if message %}
+     <div class="alert alert-warning text-center">
+        {{ message }}
+     </div>
+   {% endif %}
+
    <form action="" method="POST">
       <p><label for="username">Username: </label></p>
       <p><input type="text" id="username" name="username" required /></p>

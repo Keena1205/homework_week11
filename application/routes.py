@@ -1,5 +1,9 @@
 from flask import render_template, url_for, request, redirect, session
+
 from application import app
+import os
+
+from application.sample_data import top_reads, all_blogs
 
 
 @app.route('/')
@@ -17,8 +21,8 @@ def about():
 @app.route('/meet-GT-members')
 def meet_members():
     # Sort login / session code here - refer to line 100 on Victoria's code
-    # if request.method == 'POST':
-
+    if not session.get('loggedIn'):
+        return render_template('login.html', title="Login", message="You must be logged in to see this content.")
     return render_template('members.html', title='Meet GT Members')
 
 
@@ -29,11 +33,18 @@ def join():
 
 @app.route('/blog')
 def blog():
+    return render_template('blog.html', title='Blog', top_reads=top_reads, all_blogs=all_blogs)
+
+
+@app.route('/blog/<blog_id>')
+def blog_detail(blog_id):
     return render_template('blog.html', title='Blog')
+
 
 @app.route('/events')
 def events():
-    # Sort login / session code here - refer to line 100 on Victoria's code
+    if not session.get('loggedIn'):
+        return render_template('login.html', title="Login", message="You must be logged in to see this content.")
     return render_template('events.html', title='Events')
 
 
@@ -52,6 +63,26 @@ def login():
         session['role'] = 'Member'
         return redirect(url_for('home'))
     return render_template('login.html', title="Login")
+
+@app.route('/login', methods=['POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        cursor = mydb.cursor(dictionary=True)
+        sql = "SELECT password FROM member WHERE username = %s"
+        cursor.execute(sql, (username,))
+        result = cursor.fetchone()
+
+        if result:
+            stored_password = result['password']
+            if bcrypt.checkpw(password.encode('utf-8'), stored_password):
+                return "Login successful"
+            else:
+                return "Login failed"
+        else:
+            return "User not found"
 
 
 @app.route('/logout')
