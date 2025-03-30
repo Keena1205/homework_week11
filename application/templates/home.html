@@ -12,56 +12,37 @@
 <h2>Read our blog</h2>
 <p>From tech tips to real talk — our articles are written by girls, for girls. Dive into stories, guides, and inspo that’ll help you level up your skills, confidence, and creativity in the world of tech.</p>
 
-<!--<style>.card-img-top {{height: 300px; object-fit: cover;}}</style>-->
+<!--<style>.card-img-top {height: 300px; object-fit: cover;}</style>-->
 
-<div class="row">
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 d-flex flex-column">
-            <img src="static/images/girltechcareers.jpeg" class="card-img-top" alt="Tech careers">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Tech Careers You Have Never Heard Of But Could Totally Rock</h5>
-                <p class="card-text">Discover exciting, lesser-known tech careers where creativity and curiosity thrive — and women are leading the way.</p>
-                <a href="{}" class="btn btn-primary mt-auto">Read more</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 d-flex flex-column">
-            <img src="static/images/networking.jpeg" class="card-img-top" alt="Networking">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Conquer The Crowd: Networking Like a Pro</h5>
-                <p class="card-text">A beginner-friendly guide to confidently navigating your first tech networking event, from prep to follow-up.</p>
-                <a href="{}" class="btn btn-primary mt-auto">Read more</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 d-flex flex-column">
-            <img src="static/images/salary.jpg" class="card-img-top" alt="Salary">
-            <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Navigating the Numbers: Salary Talk for New Girls in Tech</h5>
-                <p class="card-text">Learn how to handle salary conversations with confidence and strategy as a newcomer in tech.</p>
-                <a href="{}" class="btn btn-primary mt-auto">Read more</a>
-            </div>
+{% for blog in top_reads %}
+<div class="col-md-4 mb-4">
+    <div class="card h-100 d-flex flex-column">
+        <img src="{{ blog.image }}" class="card-img-top" alt="{{ blog.title }}">
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">{{ blog.summary }}</p>
+            <a href="{{ url_for('blog_detail', slug=blog.slug) }}" class="btn btn-primary mt-auto">Read more</a>
         </div>
     </div>
 </div>
+{% endfor %}
 
 <!-- See more blogs button -->
 <div class="text-center mt-4">
-    <a href="{{ url_for('all_blogs') }}" class="btn btn-outline-primary btn-lg">See more blogs</a>
+    <a href="{{ url_for('blog') }}" class="btn btn-outline-primary btn-lg">See more blogs</a>
 </div>
 
 <hr>
 
+
+<!--Join module-->
 <h2>Join Girl Tech</h2>
 <p>As a Girl Tech member, you'll get exclusive access to tutorials, career tips, community events, and inspiring stories from women in tech—all designed to help you grow, connect, and thrive in the industry. Whether you're just starting out or levelling up, there's a place for you here.</p>
-<a href="{}">Join us</a>
+<a href="{{ url_for('join') }}">Join us</a>
 
 <hr>
 
+<!--About module-->
 <h2>Meet our team</h2>
 <!--need cards with images-->
 

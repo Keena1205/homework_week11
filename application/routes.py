@@ -1,9 +1,10 @@
 from flask import render_template, url_for, request, redirect, session
 
 from application import app
-import os
-
+from application.data_access import insert_member, get_all_members, get_password_by_username
 from application.sample_data import top_reads, all_blogs
+import bcrypt
+
 
 
 @app.route('/')
@@ -20,25 +21,49 @@ def about():
 
 @app.route('/meet-GT-members')
 def meet_members():
-    # Sort login / session code here - refer to line 100 on Victoria's code
     if not session.get('loggedIn'):
         return render_template('login.html', title="Login", message="You must be logged in to see this content.")
-    return render_template('members.html', title='Meet GT Members')
+    users = get_all_members()
+    return render_template('members.html', title='Meet GT Members', users=users)
 
 
-@app.route('/join')
+@app.route('/join', methods=['GET', 'POST'])
 def join():
+    if request.method == 'POST':
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        location = request.form['location']
+
+        hashed_pw = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+        insert_member(firstname, lastname, username, email, hashed_pw, location)
+
+        session['username'] = username
+        session['loggedIn'] = True
+        session['role'] = 'Member'
+
+        return redirect(url_for('home'))
     return render_template('join.html', title='Join')
 
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html', title='Blog', top_reads=top_reads, all_blogs=all_blogs)
+    return render_template('blog.html', title='Girl Tech Blog', top_reads=top_reads, all_blogs=all_blogs)
 
 
 @app.route('/blog/<blog_id>')
 def blog_detail(blog_id):
-    return render_template('blog.html', title='Blog')
+    blog = next((b for b in all_blogs if b['id'] == blog_id), None)
+    return render_template('blog_detail.html', title=blog['title'], blog=blog)
+
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form['email']
+    return render_template('thank_you.html', title='Thank You', email=email)
 
 
 @app.route('/events')
@@ -53,37 +78,37 @@ def resources():
     return render_template('resources.html', title='Resources')
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    # app.logger.debug("Start of login")
-    if request.method == 'POST':
-        session['username'] = request.form['username']
-        # app.logger.debug("Username is: " + session['username'])
-        session['loggedIn'] = True
-        session['role'] = 'Member'
-        return redirect(url_for('home'))
-    return render_template('login.html', title="Login")
+# @app.route('/login', methods=['GET', 'POST'])
+# def login():
+#     # app.logger.debug("Start of login")
+#     if request.method == 'POST':
+#         session['username'] = request.form['username']
+#         # app.logger.debug("Username is: " + session['username'])
+#         session['loggedIn'] = True
+#         session['role'] = 'Member'
+#         return redirect(url_for('home'))
+#     return render_template('login.html', title="Login")
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
-        cursor = mydb.cursor(dictionary=True)
-        sql = "SELECT password FROM member WHERE username = %s"
-        cursor.execute(sql, (username,))
-        result = cursor.fetchone()
+        result = get_password_by_username(username)
 
         if result:
             stored_password = result['password']
-            if bcrypt.checkpw(password.encode('utf-8'), stored_password):
-                return "Login successful"
+            if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
+                session['username'] = username
+                session['loggedIn'] = True
+                session['role'] = 'Member'
+                return redirect(url_for('home'))
             else:
-                return "Login failed"
+                return render_template('login.html', title="Login", message="Incorrect password.")
         else:
-            return "User not found"
-
+            return render_template('login.html', title="Login", message="User not found.")
+    return render_template('login.html', title="Login")
 
 @app.route('/logout')
 def logout():
