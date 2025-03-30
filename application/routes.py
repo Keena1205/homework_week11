@@ -1,9 +1,13 @@
+import bcrypt
 from flask import render_template, url_for, request, redirect, session
 
 from application import app
 import os
 
-from application.sample_data import top_reads, all_blogs
+from application.data_access import insert_member, get_password
+
+
+# from application.sample_data import top_reads, all_blogs
 
 
 @app.route('/')
@@ -26,14 +30,27 @@ def meet_members():
     return render_template('members.html', title='Meet GT Members')
 
 
-@app.route('/join')
+@app.route('/join', methods=['GET', 'POST'])
 def join():
+    if request.method == 'POST':
+        first_name = request.form['firstname']
+        last_name = request.form['lastname']
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        location = request.form['location']
+
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+        return_string = insert_member(first_name, last_name, username, email, hashed_password, location)
+        return redirect(url_for('join'))
+
     return render_template('join.html', title='Join')
 
 
-@app.route('/blog')
-def blog():
-    return render_template('blog.html', title='Blog', top_reads=top_reads, all_blogs=all_blogs)
+# @app.route('/blog')
+# def blog():
+#     return render_template('blog.html', title='Blog', top_reads=top_reads, all_blogs=all_blogs)
 
 
 @app.route('/blog/<blog_id>')
@@ -53,36 +70,24 @@ def resources():
     return render_template('resources.html', title='Resources')
 
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    # app.logger.debug("Start of login")
-    if request.method == 'POST':
-        session['username'] = request.form['username']
-        # app.logger.debug("Username is: " + session['username'])
-        session['loggedIn'] = True
-        session['role'] = 'Member'
-        return redirect(url_for('home'))
-    return render_template('login.html', title="Login")
-
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
 
-        cursor = mydb.cursor(dictionary=True)
-        sql = "SELECT password FROM member WHERE username = %s"
-        cursor.execute(sql, (username,))
-        result = cursor.fetchone()
+        result = get_password(username)
 
         if result:
             stored_password = result['password']
-            if bcrypt.checkpw(password.encode('utf-8'), stored_password):
+            if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
                 return "Login successful"
             else:
                 return "Login failed"
         else:
             return "User not found"
+
+    return render_template('login.html', title="Login")
 
 
 @app.route('/logout')
