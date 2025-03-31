@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+    <h1>Thanks for subscribing!</h1>
+    <p>We’ve added <strong>{{ email }}</strong> to our newsletter list.</p>
+    <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Back to Home</a>
+{% endblock %}

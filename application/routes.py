@@ -1,19 +1,18 @@
-import bcrypt
 from flask import render_template, url_for, request, redirect, session
 
 from application import app
-import os
-
+from application.data_access import insert_member, get_all_members, get_password_by_username
+from application.sample_data import top_reads, all_blogs
 from application.data_access import insert_member, get_password
 
+import bcrypt
 
-# from application.sample_data import top_reads, all_blogs
 
 
 @app.route('/')
 @app.route('/home')
 def home():
-    session['loggedIn'] = False
+    # session['loggedIn'] = False
     return render_template('home.html', title='Home')
 
 
@@ -24,10 +23,10 @@ def about():
 
 @app.route('/meet-GT-members')
 def meet_members():
-    # Sort login / session code here - refer to line 100 on Victoria's code
     if not session.get('loggedIn'):
         return render_template('login.html', title="Login", message="You must be logged in to see this content.")
-    return render_template('members.html', title='Meet GT Members')
+    users = get_all_members()
+    return render_template('members.html', title='Meet GT Members', users=users)
 
 
 @app.route('/join', methods=['GET', 'POST'])
@@ -48,14 +47,21 @@ def join():
     return render_template('join.html', title='Join')
 
 
-# @app.route('/blog')
-# def blog():
-#     return render_template('blog.html', title='Blog', top_reads=top_reads, all_blogs=all_blogs)
+@app.route('/blog')
+def blog():
+    return render_template('blog.html', title='Girl Tech Blog', top_reads=top_reads, all_blogs=all_blogs)
 
 
 @app.route('/blog/<blog_id>')
 def blog_detail(blog_id):
-    return render_template('blog.html', title='Blog')
+    blog = next((b for b in all_blogs if b['id'] == blog_id), None)
+    return render_template('blog_detail.html', title=blog['title'], blog=blog)
+
+
+@app.route('/subscribe', methods=['POST'])
+def subscribe():
+    email = request.form['email']
+    return render_template('thank_you.html', title='Thank You', email=email)
 
 
 @app.route('/events')
@@ -81,11 +87,14 @@ def login():
         if result:
             stored_password = result['password']
             if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
-                return "Login successful"
+                session['username'] = username
+                session['loggedIn'] = True
+                session['role'] = 'Member'
+                return redirect(url_for('home'))
             else:
-                return "Login failed"
+                return render_template('login.html', title="Login", message="Incorrect password.")
         else:
-            return "User not found"
+            return render_template('login.html', title="Login", message="User not found.")
 
     return render_template('login.html', title="Login")
 

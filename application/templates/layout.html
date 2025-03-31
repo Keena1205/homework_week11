@@ -17,96 +17,70 @@
 
 <body>
 <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/products">Girl Tech</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/welcome/everyone">Join</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Products
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/product/0">Product 0</a></li>
-                            <li><a class="dropdown-item" href="/product/1">Product 1</a></li>
-                            <li><a class="dropdown-item" href="/product/2">Product 2</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/products">All Products</a></li>
-                        </ul>
-                    </li>
-    <!--                <li class="nav-item">-->
-    <!--                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
-    <!--                </li>-->
-                    {% if session['role'] == 'admin' %}
-                    <li class="nav-item">
-                        <a class="nav-link" aria-disabled="true">ADMIN!!!</a>
-                    </li>
-                    {% endif %}
-                    {% if session['role'] == 'admin' %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Admin Pages
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/adminpage1">Admin Page 1</a></li>
-                            <li><a class="dropdown-item" href="/adminpage2">Admin Page 2</a></li>
-                        </ul>
-                    </li>
-                    {% endif %}
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            People
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/register">Register</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="/people">All People</a></li>
-                            <li><a class="dropdown-item" href="/peopledb">Database People</a></li>
-                        </ul>
+<nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid">
+        <!-- Brand (always left) -->
+        <a class="navbar-brand" href="{{ url_for('home') }}">Girl Tech</a>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin">Admin</a>
-                    </li>
+        <!-- Toggler for mobile nav -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            Admin Access
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% if session['loggedIn'] == False %}
-                            <li><a class="dropdown-item" href="/login">Login</a></li>
-                            {% else %}
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                            {% endif %}
-                        </ul>
-                    </li>
-                    </li>
-                </ul>
+        <!-- Navbar content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- LEFT SIDE: Nav items -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Community -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Community
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('about') }}">About Us</a></li>
+                        {% if session['loggedIn'] %}
+                        <li><a class="dropdown-item" href="{{ url_for('meet_members') }}">Meet GT Members</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+
+                <!-- Join -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('join') }}">Join Girl Tech</a>
+                </li>
+
+                <!-- Resource Hub -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Resource Hub
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ url_for('blog') }}">Blog</a></li>
+                        {% if session['loggedIn'] %}
+                        <li><a class="dropdown-item" href="{{ url_for('events') }}">Events</a></li>
+                        {% endif %}
+                        <li><a class="dropdown-item" href="{{ url_for('resources') }}">Resources</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- RIGHT SIDE: Login/Logout and optional search -->
+            <div class="d-flex align-items-center">
+                {% if session['loggedIn'] %}
+                <a class="btn btn-outline-primary me-2" href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                <a class="btn btn-outline-primary me-2" href="{{ url_for('login') }}">Login</a>
+                {% endif %}
+
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
 <!-- First Container (bar with Girl Tech logo) -->
