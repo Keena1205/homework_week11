@@ -1,5 +1,4 @@
 import traceback
-
 import mysql.connector
 import bcrypt
 
@@ -16,7 +15,7 @@ def insert_member(firstname, lastname, username, email, password, location):
   cursor = None
   try:
     cursor = mydb.cursor()
-    hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
     sql = "INSERT INTO member (firstname, lastname, username, email, password, location) VALUES (%s, %s, %s, %s, %s, %s)"
     val = (firstname, lastname, username, email, hashed_password, location)
     cursor.execute(sql, val)
@@ -41,4 +40,24 @@ def get_password(username):
     sql = "SELECT password FROM member WHERE username = %s"
     cursor.execute(sql, (username,))
     result = cursor.fetchone()
+    print(result)
+    cursor.close()
+    return result
+
+
+def get_all_members():
+    cursor = mydb.cursor(dictionary=True)
+    sql = "SELECT username, location FROM member"
+    cursor.execute(sql)
+    members = cursor.fetchall()
+    cursor.close()
+    return members
+
+
+def get_password_by_username(username):
+    cursor = mydb.cursor(dictionary=True)
+    sql = "SELECT password FROM member WHERE username = %s"
+    cursor.execute(sql, (username,))
+    result = cursor.fetchone()
+    cursor.close()
     return result

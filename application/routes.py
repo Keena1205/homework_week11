@@ -31,6 +31,7 @@ def meet_members():
 
 @app.route('/join', methods=['GET', 'POST'])
 def join():
+    error_message = None
     if request.method == 'POST':
         first_name = request.form['firstname']
         last_name = request.form['lastname']
@@ -39,12 +40,16 @@ def join():
         password = request.form['password']
         location = request.form['location']
 
-        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+        return_string = insert_member(first_name, last_name, username, email, password, location)
 
-        return_string = insert_member(first_name, last_name, username, email, hashed_password, location)
-        return redirect(url_for('join'))
+        return redirect(url_for('join_success'))  # redirect on success
 
-    return render_template('join.html', title='Join')
+
+    return render_template('join.html', title='Join', error_message=error_message)
+
+@app.route('/join_success')
+def join_success():
+ return "Registration successful!"
 
 
 @app.route('/blog')
@@ -78,26 +83,28 @@ def resources():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
+    message = None
     if request.method == 'POST':
         username = request.form['username']
-        password = request.form['password']
+        password = request.form['password'].encode('utf-8')  # encode the user input.
 
         result = get_password(username)
 
         if result:
             stored_password = result['password']
-            if bcrypt.checkpw(password.encode('utf-8'), stored_password.encode('utf-8')):
+            if bcrypt.checkpw(password, stored_password):
+                print('password matched')
                 session['username'] = username
                 session['loggedIn'] = True
                 session['role'] = 'Member'
+                message = 'Login Successful!'
                 return redirect(url_for('home'))
             else:
                 return render_template('login.html', title="Login", message="Incorrect password.")
         else:
             return render_template('login.html', title="Login", message="User not found.")
 
-    return render_template('login.html', title="Login")
-
+    return render_template('login.html', title="Login", message=message)
 
 @app.route('/logout')
 def logout():
