@@ -4,27 +4,23 @@
 <html lang="en">
 
 <head>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-</head>
-
-<header>
-        <!-- Required meta tags -->
+    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- My style sheet -->
-    <link href="../static/main_styles.css" rel="stylesheet" type="text/css"/>
-    <title>{{title}}</title>
 
+    <!-- Custom Stylesheet (Use url_for for Flask apps) -->
+    <link href="{{ url_for('static', filename='main_styles.css') }}" rel="stylesheet" type="text/css">
+</head>
+
+<header>
 <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/products">Girl Tech</a>
+            <a class="navbar-brand" href="/">Girl Tech</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -32,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">About</a>
+                        <a class="nav-link active" aria-current="page" href="/about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/join">Join</a>
@@ -44,13 +40,13 @@
                             Blog
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/product/0">Blog 1</a></li>
-                            <li><a class="dropdown-item" href="/product/1">Blog 2</a></li>
-                            <li><a class="dropdown-item" href="/product/2">Blog 3</a></li>
+                            <li><a class="dropdown-item" href="/blog/<blog_id>">Blog 1</a></li>
+                            <li><a class="dropdown-item" href="/blog/<blog_id>">Blog 2</a></li>
+                            <li><a class="dropdown-item" href="/blog/<blog_id>">Blog 3</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="/products">All Blogs</a></li>
+                            <li><a class="dropdown-item" href="/blog">All Blogs</a></li>
                         </ul>
                     </li>
 
@@ -60,31 +56,19 @@
                             Members
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/product/0">Meet Other Memebers</a></li>
-                            <li><a class="dropdown-item" href="/product/1">Events</a></li>
-                            <li>
+                            <li><a class="dropdown-item" href="/meet-GT-members">Meet Other Memebers</a></li>
+                            <li><a class="dropdown-item" href="/events">Events</a></li>
                         </ul>
                     </li>
 
-
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="/admin">Member</a>-->
-<!--                    </li>-->
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                           aria-expanded="false">
-                            LogIn
-                        </a>
-                        <ul class="dropdown-menu">
-                            {% if session['loggedIn'] == False %}
-                            <li><a class="dropdown-item" href="/login">Login</a></li>
-                            {% else %}
-                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
-                            {% endif %}
-                        </ul>
+                    <li class="nav-item">
+                        {% if session['loggedIn'] == False %}
+                            <a class="nav-link" href="/login">Login</a>
+                        {% else %}
+                            <a class="nav-link" href="/logout">Logout</a>
+                        {% endif %}
                     </li>
-                    </li>
+
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:200px;">
@@ -96,9 +80,6 @@
 </header>
 
             <!-- RIGHT SIDE: Login/Logout and optional search -->
-
-
-
 
 <!-- First Container (bar with Girl Tech logo) -->
 <!--<div class="container-fluid bg-2 text-center">

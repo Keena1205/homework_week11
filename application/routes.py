@@ -46,10 +46,6 @@ def join():
 
     return render_template('join.html', error_message=error_message)
 
-@app.route('/join_success')
-def join_success():
- return "Registration successful!"
-
 
 @app.route('/blog')
 def blog():
@@ -112,3 +108,5 @@ def logout():
     session.pop('role', None)
     session['loggedIn'] = False
     return redirect(url_for('home'))
+
+
