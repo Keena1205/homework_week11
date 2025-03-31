@@ -13,7 +13,7 @@ body {
       color: #e75480; /* Pink text */
       text-align: center;
       font-size: 10em;
-      background-color; #000000;
+      background-color; #ffffff;
     }
     p {
       font-size: 2em;
@@ -25,7 +25,7 @@ body {
     }
 
     h2 {
-      color: #000000; /* black text */
+      color: #ffffff; /* black text */
       text-align: center;
       font-size: 2em;
     }
@@ -39,15 +39,15 @@ body {
     }
 
   .bg-1 {
-      background-color: #000000; /* white background */
+      background-color: #ffffff; /* white background */
       color: #ffffff;  /* black text */
   }
   .bg-2 {
-      background-color: #000000; /* white */
+      background-color: #ffffff; /* white */
       color: #ffffff;
   }
   .bg-3 {
-      background-color: #000000; /* black */
+      background-color: #ffffff; /* black */
       color: #ffffff;
   }
   .bg-4 {
@@ -116,41 +116,58 @@ body {
     color: #000000; /*  black colour on hover */
     }
 
-    .nav-tabs {
-    background-color: #f5f5f5; /* Light Gray from palette for the nav bar background */
-    border-bottom: 1px solid #ddd; /* border */
-    padding-left: 10px; /* padding on the left */
-    }
+    header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+}
 
-    .nav-tabs .nav-item {
-    margin-bottom: -1px; /* spacing between items and border */
-    }
+.logo {
+  margin-left: 650px;
+  max-width: 100px;
+}
 
-    .nav-tabs .nav-link {
-    border: 1px solid transparent; /* border transparent */
-    border-top-left-radius: 4px; /* Rounded corners for the top */
-    border-top-right-radius: 4px;
-    padding: 0.5rem 1rem; /* Padding for the links */
-    color: #000000; /* Black text  */
-    text-decoration: none; /* Remove underlines */
-    }
+.logo img {
+  height: 50px;
+  max-width: 100%;
+}
 
-    .nav-tabs .nav-link:hover,
-    .nav-tabs .nav-link:focus {
-    background-color: #ffffff; /* White background on hover/focus */
-    border-color: #ddd #ddd #f5f5f5; /* Border color on hover/focus to match */
-    color: #e75480;  /* Pink on hover */
-    }
+.nav-tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-wrap: nowrap; /* Add this line */
+}
 
-    .nav-tabs .nav-link.active {
-    background-color: #ffffff; /* White background for the active link */
-    border-color: #ddd #ddd #ffffff; /* Active link border */
-    color: #e75480; /* Active link text - Pink */
-    font-weight: bold; /* Make active link text bold */
-    }
+.nav-tabs .nav-item {
+  margin-right: 10px;
+  margin-bottom: -1px;
+}
 
-    .nav-tabs .nav-link.disabled {
-    color: #6c757d; /* Gray out disabled links */
-    background-color: transparent;
-    border-color: transparent;
-    }
+.nav-tabs .nav-link {
+  border: 1px solid transparent;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  background-color: #000000;
+  border-color: #ddd #ddd #f5f5f5;
+  color: #e75480;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #000000;
+  border-color: #ddd #ddd #ffffff;
+  color: #e75480;
+  font-weight: bold;
+}
