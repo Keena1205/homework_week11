@@ -2,51 +2,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<header>
-    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-        <nav style="margin-right: auto;">
-            <ul class="nav nav-tabs">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Community
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ url_for('about') }}">About Us</a></li>
-                        {% if session['loggedIn'] %}
-                        <li><a class="dropdown-item" href="{{ url_for('meet_members') }}">Meet GT Members</a></li>
-                        {% endif %}
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('join') }}">Join</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Resource Hub
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ url_for('blog') }}">Blog</a></li>
-                        {% if session['loggedIn'] %}
-                        <li><a class="dropdown-item" href="{{ url_for('events') }}">Events</a></li>
-                        {% endif %}
-                        <li><a class="dropdown-item" href="{{ url_for('resources') }}">Resources</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <form class="form-inline my-2 my-lg-0" style="margin: 0 auto; display: flex;">
-            <input class="form-control mr-sm-0" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <a href="{{ url_for('home') }}" style="margin-left: auto;">
-            <img src="static/images/gt_logo.png" alt="Girl Tech Logo" class="logo">
-        </a>
-    </div>
-</header>
-
 
 <head>
-    <!-- Required meta tags -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<header>
+        <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
@@ -55,8 +20,80 @@
     <!-- My style sheet -->
     <link href="../static/main_styles.css" rel="stylesheet" type="text/css"/>
     <title>{{title}}</title>
-</head>
 
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/products">Girl Tech</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/join">Join</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Blog
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/product/0">Blog 1</a></li>
+                            <li><a class="dropdown-item" href="/product/1">Blog 2</a></li>
+                            <li><a class="dropdown-item" href="/product/2">Blog 3</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/products">All Blogs</a></li>
+                        </ul>
+                    </li>
+
+                       <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Members
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/product/0">Meet Other Memebers</a></li>
+                            <li><a class="dropdown-item" href="/product/1">Events</a></li>
+                            <li>
+                        </ul>
+                    </li>
+
+
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="/admin">Member</a>-->
+<!--                    </li>-->
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            LogIn
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% if session['loggedIn'] == False %}
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style="width:200px;">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
 
             <!-- RIGHT SIDE: Login/Logout and optional search -->
 
@@ -71,7 +108,7 @@
          width="10%" height="5%">
 </div> -->
 
-
+<body>
 <!-- Second Container (main body content) -->
 <div class="container-fluid bg-3 text-left">
     <h1>{{ title }}</h1>
