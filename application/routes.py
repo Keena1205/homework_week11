@@ -26,7 +26,7 @@ def meet_members():
     if not session.get('loggedIn'):
         return render_template('login.html', title="Login", message="You must be logged in to see this content.")
     users = get_all_members()
-    return render_template('members.html', title='Meet GT Members', users=users)
+    return render_template('members.html', users=users)
 
 
 @app.route('/join', methods=['GET', 'POST'])
@@ -68,7 +68,7 @@ def subscribe():
 def events():
     if not session.get('loggedIn'):
         return render_template('login.html', title="Login", message="You must be logged in to see this content.")
-    return render_template('events.html', title='Events')
+    return render_template('events.html')
 
 
 @app.route('/resources')
