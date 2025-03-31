@@ -27,6 +27,7 @@ body {
       color: #ffffff; /* black text */
       text-align: center;
       font-size: 2em;
+
     }
     p {
       font-size: 20px;
@@ -39,19 +40,19 @@ body {
 
   .bg-1 {
       background-color: #ffffff; /* white background */
-      color: #ffffff;  /* black text */
+      color: #000000;  /* black text */
   }
   .bg-2 {
       background-color: #ffffff; /* white */
-      color: #ffffff;
+      color: #000000;
   }
   .bg-3 {
       background-color: #ffffff; /* black */
-      color: #ffffff;
+      color: #000000;
   }
   .bg-4 {
       background-color: #ec7699; /* pink */
-      color: #fff;
+      color: #000000;
   }
   .container-fluid {
       padding-top: 20px;
@@ -70,7 +71,7 @@ body {
       letter-spacing: 5px;
   }
   .navbar-nav  li a:hover {
-      color: #f5bbcc !important; /* light pink */
+      color: #f5bbcc; /* light pink */
   }
     #message {
       color: #f198b3; /* pink */
