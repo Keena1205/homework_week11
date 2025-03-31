@@ -13,12 +13,12 @@ import bcrypt
 @app.route('/home')
 def home():
     # session['loggedIn'] = False
-    return render_template('home.html', title='Home')
+    return render_template('home.html')
 
 
 @app.route('/about')
 def about():
-    return render_template('about.html', title='About')
+    return render_template('about.html')
 
 
 @app.route('/meet-GT-members')
@@ -42,10 +42,9 @@ def join():
 
         return_string = insert_member(first_name, last_name, username, email, password, location)
 
-        return redirect(url_for('join_success'))  # redirect on success
+        return redirect(url_for('home'))  # redirect on success
 
-
-    return render_template('join.html', title='Join', error_message=error_message)
+    return render_template('join.html', error_message=error_message)
 
 @app.route('/join_success')
 def join_success():
@@ -54,7 +53,7 @@ def join_success():
 
 @app.route('/blog')
 def blog():
-    return render_template('blog.html', title='Girl Tech Blog', top_reads=top_reads, all_blogs=all_blogs)
+    return render_template('blog.html', top_reads=top_reads, all_blogs=all_blogs)
 
 
 @app.route('/blog/<blog_id>')
