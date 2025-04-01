@@ -1,5 +1,5 @@
 top_reads = [
-    {"id": "tech-careers", "title": "Tech Careers You’ve Never Heard Of (But Totally Could Rock!)",
+    {"id": "tech-careers", "title": "Tech Careers",
      "summary": "Discover exciting, lesser-known tech careers where creativity and curiosity thrive — and women are leading the way.",
      "image": "images/top1.jpg", "body": """
         <p>When most people hear "tech job," they imagine someone glued to a screen, typing endless lines of code. But the truth? Tech is way more diverse — and creative — than you might think. Whether you're analytical, artistic, strategic, or somewhere in between, there's a role for you. And spoiler alert: women are already killing it in these spaces.</p>
@@ -140,11 +140,12 @@ all_blogs = [
         </section>
      """},
 
-    {"id": "tech-careers", "title": "Tech Careers You’ve Never Heard Of (But Totally Could Rock!)",
+    {"id": "tech-careers", "title": "Tech Careers",
      "summary": "Discover exciting, lesser-known tech careers where creativity and curiosity thrive — and women are leading the way.",
      "image": "images/top1.jpg", "body": """
      <p>When most people hear "tech job," they imagine someone glued to a screen, typing endless lines of code. But the truth? Tech is way more diverse — and creative — than you might think. Whether you're analytical, artistic, strategic, or somewhere in between, there's a role for you. And spoiler alert: women are already killing it in these spaces.</p>
-    
+        
+
           <p>Here are five tech careers you <strong>might not have heard of</strong> — but that you could totally thrive in:</p>
     
           <h2>💡 UX Designer (User Experience Designer)</h2>

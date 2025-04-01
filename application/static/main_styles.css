@@ -27,6 +27,9 @@ body {
       color: #000000; /* black text */
       text-align: center;
       font-size: 2em;
+      margin-bottom: 25px;
+      margin-top: 50px;
+
 
     }
     p {
