@@ -99,13 +99,11 @@ all_blogs = [
         
         <h2>You Belong Here</h2>
         <p>The tech industry needs diverse voices and perspectives—yours included. Recognizing and overcoming imposter syndrome takes time, but every step you take strengthens your confidence and resilience. So own your space, trust your abilities, and keep moving forward. You’ve earned your place in tech.</p>
-    </main>
         """},
 
     {"id": "first-coding-project", "title": "Your First Coding Project: A Step-by-Step Guide",
      "summary": "From idea to execution — everything you need to confidently build and finish your first coding project, even if you’re just starting out.",
      "image": "images/coding_project.jpg", "body": """
-     <main>
         <section>
             <h2>1. Choose a Project Idea</h2>
             <p>Start with something simple and meaningful to you. Whether it’s a personal blog, a to-do list app, or a basic calculator, pick a project that aligns with your learning goals.</p>
@@ -140,7 +138,6 @@ all_blogs = [
             <h2>7. Keep Learning and Iterating</h2>
             <p>Your first project is just the beginning. Gather feedback, make improvements, and start planning your next coding adventure!</p>
         </section>
-    </main>
      """},
 
     {"id": "tech-careers", "title": "Tech Careers You’ve Never Heard Of (But Totally Could Rock!)",
@@ -203,11 +200,7 @@ all_blogs = [
 
     {"id": "tech-mentors", "title": "Why Every Girl in Tech Needs a Mentor (and How to Find One)",
      "summary": "A mentor can change your tech journey. Discover the benefits of mentorship and practical ways to connect with inspiring women in tech.",
-     "image": "images/mentorship.jpg"},
-
-    {"id": "salary-talk", "title": "Navigating the Numbers: Salary Talk for New Girls in Tech",
-     "summary": "Learn how to handle salary conversations with confidence and strategy as a newcomer in tech.",
-     "image": "images/top3.jpg", "body": """
+     "image": "images/mentorship.jpg", "body": """
      <p>In the ever-evolving world of technology, women continue to break barriers, innovate, and inspire. Yet, the path can often feel lonely, competitive, and overwhelming—especially when you're just starting out. This is where having a mentor becomes not just helpful, but transformative. A mentor is more than a guide—they're a sounding board, a motivator, and sometimes, your biggest cheerleader. For every girl navigating the tech space, mentorship can make all the difference.</p>
         
         <h2>The Power of Mentorship</h2>
@@ -232,5 +225,35 @@ all_blogs = [
         
         <h2>Final Thoughts</h2>
         
-        <p>Mentorship is a game changer. It’s the difference between figuring things out alone and having someone by your side who believes in you. So don’t hesitate—seek out that connection. Every girl in tech deserves someone in her corner.</p>"""}
+        <p>Mentorship is a game changer. It’s the difference between figuring things out alone and having someone by your side who believes in you. So don’t hesitate—seek out that connection. Every girl in tech deserves someone in her corner.</p>"""},
+
+    {"id": "salary-talk", "title": "Navigating the Numbers: Salary Talk for New Girls in Tech",
+     "summary": "Learn how to handle salary conversations with confidence and strategy as a newcomer in tech.",
+     "image": "images/top3.jpg", "body": """
+     <p>Ah, the salary question — the moment that can make even the most confident tech newbie sweat. “What are your salary expectations?” or worse, “What are you currently making?” Cue the internal panic. But guess what? You’ve got this.</p>
+    
+            <h2>📊 Know Your Worth</h2>
+            <p>Before you walk into any interview, come armed with knowledge. Use tools like Glassdoor, Payscale, and LinkedIn Salary to get a sense of the going rate for your role, experience level, and location. Your number isn’t random — it’s a reflection of your value. Research is power.</p>
+    
+            <h2>🚫 Skip the Salary History Trap</h2>
+            <p>In many places, it’s illegal to ask about your past pay — and even where it’s legal, you don’t have to answer. Try this: <strong>“I’m focused on the value I bring to this role and prefer to discuss salary based on the market rate.”</strong> Professional, clear, and puts the focus where it belongs: forward.</p>
+    
+            <h2>💬 Talk Ranges, Not Exact Numbers</h2>
+            <p>Instead of locking yourself into a single figure, offer a well-researched range. For example: <strong>“Based on my research, I’m looking for something in the range of 60 to 70k, depending on the full package.”</strong> Flexibility shows confidence and leaves room for negotiation.</p>
+    
+            <h2>🌟 Lead with Value</h2>
+            <p>Don’t just talk about what you want — talk about what you bring. Highlight your skills, enthusiasm, and what you’ll contribute. <em>“With my background in UX and project coordination, I’m confident I can make an immediate impact on your product team.”</em></p>
+    
+            <h2>🧾 Look at the Full Picture</h2>
+            <p>Salary is just one slice of the pie. Think about health benefits, remote work, learning stipends, mental health days, and career growth opportunities. These all add serious value to your total package.</p>
+    
+            <h2>🗣️ Practice Makes Powerful</h2>
+            <p>Negotiation is a skill, and like any skill — you get better with practice. Do a mock run with a friend, mentor, or even in the mirror. The more you say it out loud, the more confident you’ll feel.</p>
+    
+            <h2>⏳ Take Your Time</h2>
+            <p>If you’re offered something that feels off, it’s okay to ask for time. Say, <em>“Thank you — I’d love to take a day or two to consider the offer.”</em> Professional. Assertive. Respectful.</p>
+    
+            <p>💪 As a new girl in tech, your ideas, skills, and voice matter. Don’t be afraid to advocate for yourself. The right role will honour your worth — and you’re more than worth it.</p>
+    
+            <p><strong>Girl Tech’s got your back 💼💖</strong></p>"""}
 ]
