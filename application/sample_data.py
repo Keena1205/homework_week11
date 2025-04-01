@@ -1,7 +1,7 @@
 top_reads = [
     {"id": "tech-careers", "title": "Tech Careers",
      "summary": "Discover exciting, lesser-known tech careers where creativity and curiosity thrive — and women are leading the way.",
-     "image": "images/top1.jpg", "body": """
+     "image": "static/images/girltechcareers.jfif", "body": """
         <p>When most people hear "tech job," they imagine someone glued to a screen, typing endless lines of code. But the truth? Tech is way more diverse — and creative — than you might think. Whether you're analytical, artistic, strategic, or somewhere in between, there's a role for you. And spoiler alert: women are already killing it in these spaces.</p>
     
           <p>Here are five tech careers you <strong>might not have heard of</strong> — but that you could totally thrive in:</p>
@@ -28,7 +28,7 @@ top_reads = [
 
     {"id": "networking-tips", "title": "Conquer The Crowd: Networking Like a Pro",
      "summary": "A beginner-friendly guide to confidently navigating your first tech networking event, from prep to follow-up.",
-     "image": "images/top2.jpg", "body": """
+     "image": "static/images/networking.jfif", "body": """
         <p>You’re new to tech. You’ve got your first networking event coming up. And if we’re being real? The idea of entering a room full of confident, experienced professionals is… intimidating. But don’t panic — this is your chance to shine, learn, and start building your tribe in tech!</p>
     
             <h2>🔍 Before You Go: Prep Like a Pro</h2>
@@ -59,11 +59,11 @@ top_reads = [
         """}
 ]
 
-# add body to line 67 and 73
+
 all_blogs = [
     {"id": "imposter-syndrome", "title": "Silencing the Doubt: Overcoming Imposter Syndrome in Tech",
      "summary": "You belong here. Learn how to recognise imposter syndrome, shift your mindset, and own your space in the tech world.",
-     "image": "images/imposter.jpg", "body": """
+     "image": "static/images/Imposter-Syndrome-image.png", "body": """
          <p>Have you ever felt like you don't belong in tech? That despite your accomplishments, you’re just one mistake away from being exposed as a fraud? If so, you’re not alone. This feeling is called imposter syndrome, and it affects countless professionals in the tech industry—including some of the most successful developers, engineers, and leaders.</p>
         
         <h2>What is Imposter Syndrome?</h2>
@@ -103,7 +103,7 @@ all_blogs = [
 
     {"id": "first-coding-project", "title": "Your First Coding Project: A Step-by-Step Guide",
      "summary": "From idea to execution — everything you need to confidently build and finish your first coding project, even if you’re just starting out.",
-     "image": "images/coding_project.jpg", "body": """
+     "image": "static/images/first_wesbsite.jpg", "body": """
         <section>
             <h2>1. Choose a Project Idea</h2>
             <p>Start with something simple and meaningful to you. Whether it’s a personal blog, a to-do list app, or a basic calculator, pick a project that aligns with your learning goals.</p>
@@ -142,7 +142,7 @@ all_blogs = [
 
     {"id": "tech-careers", "title": "Tech Careers",
      "summary": "Discover exciting, lesser-known tech careers where creativity and curiosity thrive — and women are leading the way.",
-     "image": "images/top1.jpg", "body": """
+     "image": "static/images/girltechcareers.jfif", "body": """
      <p>When most people hear "tech job," they imagine someone glued to a screen, typing endless lines of code. But the truth? Tech is way more diverse — and creative — than you might think. Whether you're analytical, artistic, strategic, or somewhere in between, there's a role for you. And spoiler alert: women are already killing it in these spaces.</p>
         
 
@@ -169,7 +169,7 @@ all_blogs = [
 
     {"id": "networking-tips", "title": "Conquer The Crowd: Networking Like a Pro",
      "summary": "A beginner-friendly guide to confidently navigating your first tech networking event, from prep to follow-up.",
-     "image": "images/top2.jpg", "body": """
+     "image": "static/images/networking.jfif", "body": """
         <p>You’re new to tech. You’ve got your first networking event coming up. And if we’re being real? The idea of entering a room full of confident, experienced professionals is… intimidating. But don’t panic — this is your chance to shine, learn, and start building your tribe in tech!</p>
     
             <h2>🔍 Before You Go: Prep Like a Pro</h2>
@@ -201,7 +201,7 @@ all_blogs = [
 
     {"id": "tech-mentors", "title": "Why Every Girl in Tech Needs a Mentor (and How to Find One)",
      "summary": "A mentor can change your tech journey. Discover the benefits of mentorship and practical ways to connect with inspiring women in tech.",
-     "image": "images/mentorship.jpg", "body": """
+     "image": "static/images/mentors.png", "body": """
      <p>In the ever-evolving world of technology, women continue to break barriers, innovate, and inspire. Yet, the path can often feel lonely, competitive, and overwhelming—especially when you're just starting out. This is where having a mentor becomes not just helpful, but transformative. A mentor is more than a guide—they're a sounding board, a motivator, and sometimes, your biggest cheerleader. For every girl navigating the tech space, mentorship can make all the difference.</p>
         
         <h2>The Power of Mentorship</h2>
@@ -230,7 +230,7 @@ all_blogs = [
 
     {"id": "salary-talk", "title": "Navigating the Numbers: Salary Talk for New Girls in Tech",
      "summary": "Learn how to handle salary conversations with confidence and strategy as a newcomer in tech.",
-     "image": "images/top3.jpg", "body": """
+     "image": "static/images/salary.jfif", "body": """
      <p>Ah, the salary question — the moment that can make even the most confident tech newbie sweat. “What are your salary expectations?” or worse, “What are you currently making?” Cue the internal panic. But guess what? You’ve got this.</p>
     
             <h2>📊 Know Your Worth</h2>
