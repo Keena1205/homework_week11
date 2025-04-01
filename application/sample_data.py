@@ -64,13 +64,83 @@ all_blogs = [
     {"id": "imposter-syndrome", "title": "Silencing the Doubt: Overcoming Imposter Syndrome in Tech",
      "summary": "You belong here. Learn how to recognise imposter syndrome, shift your mindset, and own your space in the tech world.",
      "image": "images/imposter.jpg", "body": """
+         <p>Have you ever felt like you don't belong in tech? That despite your accomplishments, you’re just one mistake away from being exposed as a fraud? If so, you’re not alone. This feeling is called imposter syndrome, and it affects countless professionals in the tech industry—including some of the most successful developers, engineers, and leaders.</p>
         
+        <h2>What is Imposter Syndrome?</h2>
+        <p>Imposter syndrome is the persistent belief that your success is due to luck or external factors rather than your skills and effort. It can manifest as self-doubt, fear of failure, or even perfectionism that prevents you from acknowledging your achievements.</p>
+        
+        <h2>Recognizing the Signs</h2>
+        <p>Imposter syndrome can look different for everyone, but common signs include:</p>
+        <ul>
+            <li>Feeling like a fraud despite evidence of competence</li>
+            <li>Downplaying achievements or attributing them to luck</li>
+            <li>Fear of being “found out” as underqualified</li>
+            <li>Comparing yourself to others and feeling inadequate</li>
+            <li>Overworking to compensate for perceived shortcomings</li>
+        </ul>
+        
+        <h2>How to Overcome Imposter Syndrome</h2>
+        <p>While imposter syndrome can be challenging, there are ways to shift your mindset and reclaim your confidence.</p>
+        
+        <h3>1. Reframe Your Thoughts</h3>
+        <p>Instead of thinking, “I don’t belong here,” remind yourself, “I am constantly learning and growing.” Recognizing that everyone experiences doubt at some point can help normalize your feelings.</p>
+        
+        <h3>2. Keep a Record of Your Achievements</h3>
+        <p>Maintain a “wins” journal where you document successes, positive feedback, and milestones. Reviewing your progress can serve as a powerful reminder of your abilities.</p>
+        
+        <h3>3. Talk About It</h3>
+        <p>Share your feelings with trusted colleagues, mentors, or support groups. You’ll likely find that many others have faced similar struggles and can offer guidance or reassurance.</p>
+        
+        <h3>4. Stop Comparing Yourself to Others</h3>
+        <p>Social media and professional networks can make it easy to compare yourself to high achievers. Remember, what you see is often a highlight reel, not the full story. Focus on your own growth and journey.</p>
+        
+        <h3>5. Accept That Perfection is a Myth</h3>
+        <p>No one knows everything, and making mistakes is part of learning. Embrace challenges as opportunities to improve rather than as proof of incompetence.</p>
+        
+        <h2>You Belong Here</h2>
+        <p>The tech industry needs diverse voices and perspectives—yours included. Recognizing and overcoming imposter syndrome takes time, but every step you take strengthens your confidence and resilience. So own your space, trust your abilities, and keep moving forward. You’ve earned your place in tech.</p>
+    </main>
         """},
 
     {"id": "first-coding-project", "title": "Your First Coding Project: A Step-by-Step Guide",
      "summary": "From idea to execution — everything you need to confidently build and finish your first coding project, even if you’re just starting out.",
      "image": "images/coding_project.jpg", "body": """
-     
+     <main>
+        <section>
+            <h2>1. Choose a Project Idea</h2>
+            <p>Start with something simple and meaningful to you. Whether it’s a personal blog, a to-do list app, or a basic calculator, pick a project that aligns with your learning goals.</p>
+        </section>
+
+        <section>
+            <h2>2. Plan Your Project</h2>
+            <p>Break your project into smaller tasks. Outline features, design a rough structure, and decide on the technologies you’ll use (HTML, CSS, JavaScript, Python, etc.).</p>
+        </section>
+
+        <section>
+            <h2>3. Set Up Your Development Environment</h2>
+            <p>Install the necessary tools like a code editor (VS Code, Sublime Text), version control (Git), and any dependencies your project may require.</p>
+        </section>
+
+        <section>
+            <h2>4. Write and Test Your Code</h2>
+            <p>Start coding! Work on one feature at a time, testing as you go. Use debugging tools and console logs to troubleshoot errors.</p>
+        </section>
+
+        <section>
+            <h2>5. Refine and Improve</h2>
+            <p>Once your basic functionality is in place, refine your code. Improve the UI, add comments, and clean up redundant code.</p>
+        </section>
+
+        <section>
+            <h2>6. Deploy Your Project</h2>
+            <p>Showcase your work! Use platforms like GitHub Pages, Netlify, or Heroku to make your project accessible online.</p>
+        </section>
+
+        <section>
+            <h2>7. Keep Learning and Iterating</h2>
+            <p>Your first project is just the beginning. Gather feedback, make improvements, and start planning your next coding adventure!</p>
+        </section>
+    </main>
      """},
 
     {"id": "tech-careers", "title": "Tech Careers You’ve Never Heard Of (But Totally Could Rock!)",
